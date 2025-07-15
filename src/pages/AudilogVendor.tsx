@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ProductForm } from '../components/ProductForm';
+import { BackButton } from '../components/BackButton';
 import { Store } from 'lucide-react';
 
 const AudilogVendor: React.FC = () => {
@@ -8,14 +9,17 @@ const AudilogVendor: React.FC = () => {
     <div className="min-h-screen bg-background">
       <header className="border-b bg-white">
         <div className="container mx-auto px-4 py-6">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <Store className="w-5 h-5 text-primary-foreground" />
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center gap-3">
+              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                <Store className="w-5 h-5 text-primary-foreground" />
+              </div>
+              <div>
+                <h1 className="text-2xl font-semibold text-foreground">Audilog</h1>
+                <p className="text-sm text-muted-foreground">Vendor Portal</p>
+              </div>
             </div>
-            <div>
-              <h1 className="text-2xl font-semibold text-foreground">Audilog</h1>
-              <p className="text-sm text-muted-foreground">Vendor Portal</p>
-            </div>
+            <BackButton />
           </div>
         </div>
       </header>

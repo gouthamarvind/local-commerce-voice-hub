@@ -7,7 +7,7 @@ interface AudilogContextType {
   records: AudilogRecord[];
   products: Product[];
   refreshData: () => void;
-  addVendorProduct: (vendorData: Omit<AudilogRecord, 'type'>) => void;
+  addVendorProduct: (vendorData: Omit<AudilogRecord, 'type' | 'uid'>) => string;
   purchaseProduct: (customerUid: string, productId: string, quantity: number) => boolean;
 }
 
@@ -24,13 +24,13 @@ export const AudilogProvider: React.FC<{ children: React.ReactNode }> = ({ child
     setProducts(newProducts);
   };
 
-  const addVendorProduct = (vendorData: Omit<AudilogRecord, 'type'>) => {
-    const record: AudilogRecord = {
+  const addVendorProduct = (vendorData: Omit<AudilogRecord, 'type' | 'uid'>): string => {
+    const uid = csvManager.addRecord({
       ...vendorData,
       type: 'vendor'
-    };
-    csvManager.addRecord(record);
+    });
     refreshData();
+    return uid;
   };
 
   const purchaseProduct = (customerUid: string, productId: string, quantity: number): boolean => {

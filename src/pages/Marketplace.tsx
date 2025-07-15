@@ -7,6 +7,7 @@ import { ProductCard } from '../components/ProductCard';
 import { ProductFilters } from '../components/ProductFilters';
 import { VoiceInput } from '../components/VoiceInput';
 import { CartPreview } from '../components/CartPreview';
+import GoogleTranslate from '../components/GoogleTranslate';
 
 const Marketplace = () => {
   const navigate = useNavigate();
@@ -87,6 +88,7 @@ const Marketplace = () => {
               <ArrowLeft className="w-5 h-5" />
             </button>
             <h1 className="text-2xl font-bold text-primary">{currentText.title}</h1>
+            <GoogleTranslate />
           </div>
 
           {/* Search Bar */}

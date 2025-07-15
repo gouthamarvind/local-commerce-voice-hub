@@ -4,6 +4,7 @@ import { ArrowLeft, Plus, Upload, Mic, Edit, Trash2, Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useApp } from '../contexts/AppContext';
 import { VoiceInput } from '../components/VoiceInput';
+import GoogleTranslate from '../components/GoogleTranslate';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -163,6 +164,7 @@ const Dashboard = () => {
               <ArrowLeft className="w-5 h-5" />
             </button>
             <h1 className="text-2xl font-bold text-primary">{currentText.title}</h1>
+            <GoogleTranslate />
           </div>
         </div>
       </header>

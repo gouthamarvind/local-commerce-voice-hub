@@ -5,6 +5,7 @@ import { ShoppingBag, Store } from 'lucide-react';
 import { LanguageToggle } from '../components/LanguageToggle';
 import { TrustMetrics } from '../components/TrustMetrics';
 import { useApp } from '../contexts/AppContext';
+import GoogleTranslate from '../components/GoogleTranslate';
 
 const Index = () => {
   const navigate = useNavigate();
@@ -45,7 +46,10 @@ const Index = () => {
       <header className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-40 border-b border-gray-200">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <div className="text-xl font-bold text-primary">LocalHub</div>
-          <LanguageToggle />
+          <div className="flex items-center gap-4">
+            <LanguageToggle />
+            <GoogleTranslate />
+          </div>
         </div>
       </header>
 

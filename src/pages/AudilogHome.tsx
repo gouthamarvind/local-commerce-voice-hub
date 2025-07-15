@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Card, CardContent } from '../components/ui/card';
 import { Store, ShoppingBag, Database } from 'lucide-react';
+import GoogleTranslate from '../components/GoogleTranslate';
 
 const AudilogHome: React.FC = () => {
   const navigate = useNavigate();
@@ -11,6 +12,9 @@ const AudilogHome: React.FC = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
       <div className="container mx-auto px-4 py-16">
+        <div className="flex justify-end mb-4">
+          <GoogleTranslate />
+        </div>
         <div className="max-w-4xl mx-auto text-center">
           {/* Hero Section */}
           <div className="mb-16">

@@ -4,7 +4,7 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { useAudilog } from '../contexts/AudilogContext';
-import { ShoppingCart, Calendar, Phone } from 'lucide-react';
+import { ShoppingCart, Calendar, Phone, Package } from 'lucide-react';
 
 export const ProductGrid: React.FC = () => {
   const { products, purchaseProduct } = useAudilog();
@@ -54,7 +54,21 @@ export const ProductGrid: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {products.map((product) => (
-          <Card key={product.id} className="group hover:shadow-md transition-shadow">
+          <Card key={product.id} className="group hover:shadow-md transition-shadow overflow-hidden">
+            {product.image ? (
+              <div className="aspect-video w-full overflow-hidden">
+                <img
+                  src={product.image}
+                  alt={product.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                />
+              </div>
+            ) : (
+              <div className="aspect-video w-full bg-muted flex items-center justify-center">
+                <Package className="w-12 h-12 text-muted-foreground" />
+              </div>
+            )}
+            
             <CardHeader className="pb-3">
               <CardTitle className="text-lg font-medium">{product.name}</CardTitle>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -63,6 +77,12 @@ export const ProductGrid: React.FC = () => {
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
+              {product.description && (
+                <p className="text-sm text-muted-foreground line-clamp-2">
+                  {product.description}
+                </p>
+              )}
+              
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Available:</span>

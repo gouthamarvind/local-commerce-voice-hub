@@ -5,6 +5,8 @@ export interface AudilogRecord {
   phoneNumber: string;
   productCount: number;
   productName: string;
+  productDescription: string;
+  productImage?: string;
   manufactureDate: string;
   expiryDate: string;
 }
@@ -13,6 +15,8 @@ export interface Product {
   id: string;
   vendorUid: string;
   name: string;
+  description: string;
+  image?: string;
   count: number;
   manufactureDate: string;
   expiryDate: string;
